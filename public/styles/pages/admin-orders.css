@@ -1,0 +1,322 @@
+/*** List of orders ***/
+
+.admin-orders-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-bg-form);
+}
+
+.admin-orders-list-table th,
+.admin-orders-list-table td {
+    padding: 8px 12px;
+    border: 1px solid var(--color-border-decorative-1);
+    vertical-align: middle;
+}
+
+.admin-orders-list-table th {
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--color-bg-admin);
+}
+
+.admin-orders-list-table td {
+    text-align: center;
+}
+
+.admin-orders-list-table .order-status-form {
+    margin: 0;
+}
+
+.admin-orders-list-table .order-status-select {
+    width: auto;
+}
+
+.admin-orders-list-table td:last-child a {
+    display: inline-block;
+    width: 100px;
+}
+
+.admin-orders-list-table td:last-child a:hover {
+    color: var(--color-hover-action);
+}
+
+
+/*** Responsive ***/
+
+@media (max-width: 1050px) {
+
+    .admin-orders-list-table {
+        border-collapse: separate;
+        background: none;
+    }
+
+    .admin-orders-list-table thead {
+        display: none;
+    }
+
+    .admin-orders-list-table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-orders-list-table tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid var(--color-border-decorative-1);
+        background-color: var(--color-bg-form);
+    }
+
+    .admin-orders-list-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 12px;
+        border: none;
+        border-bottom: 1px solid var(--color-border-decorative-1);
+        text-align: center;
+    }
+
+    .admin-orders-list-table td:last-child {
+        border-bottom: none;
+    }
+
+    .admin-orders-list-table td::before {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: bold;
+    }
+
+    .admin-orders-list-table td:nth-child(1)::before {
+        content: "Statut";
+    }
+
+    .admin-orders-list-table td:nth-child(2)::before {
+        content: "Date";
+    }
+
+    .admin-orders-list-table td:nth-child(3)::before {
+        content: "Client";
+    }
+
+    .admin-orders-list-table td:nth-child(4)::before {
+        content: "Email";
+    }
+
+    .admin-orders-list-table td:nth-child(5)::before {
+        content: "N° commande";
+    }
+
+    .admin-orders-list-table td:nth-child(6)::before {
+        content: "Total";
+    }
+
+    .admin-orders-list-table td:nth-child(7)::before {
+        content: "Détail";
+    }
+
+    .admin-orders-list-table .order-status-form {
+        margin: 0;
+    }
+
+    .admin-orders-list-table .order-status-select {
+        width: auto;
+    }
+
+    .admin-orders-list-table td:last-child a {
+        display: block;
+        width: 100px;
+        margin-inline: auto;
+    }
+}
+
+
+
+/*      ADMIN orders details page code      */
+
+/*** Order details ***/
+
+.admin-order-show {
+    width: 100%;
+}
+
+.admin-order-details,
+.admin-order-items {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-bg-form);
+}
+
+.admin-order-details {
+    margin-bottom: 30px;
+}
+
+.admin-order-details th,
+.admin-order-details td,
+.admin-order-items th,
+.admin-order-items td {
+    padding: 8px 12px;
+    border: 1px solid var(--color-border-decorative-1);
+    vertical-align: middle;
+}
+
+.admin-order-details th {
+    width: 180px;
+    font-weight: bold;
+    text-align: left;
+    background-color: var(--color-bg-admin);
+}
+
+.admin-order-items th {
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--color-bg-admin);
+}
+
+.admin-order-items td {
+    text-align: center;
+}
+
+.admin-order-items tfoot th {
+    text-align: right;
+}
+
+.admin-order-items tfoot th:last-child {
+    text-align: center;
+}
+
+
+/*** Responsive ***/
+
+@media (max-width: 740px) {
+
+    /* Order information */
+
+    .admin-order-details {
+        border-collapse: separate;
+        background: none;
+    }
+
+    .admin-order-details tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-order-details tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        border: 1px solid var(--color-border-decorative-1);
+        background-color: var(--color-bg-form);
+    }
+
+    .admin-order-details td,
+    .admin-order-details th {
+        display: block;
+        width: 100%;
+        border: none;
+        text-align: center;
+    }
+
+    .admin-order-details th {
+        padding-bottom: 4px;
+        background-color: var(--color-bg-admin);
+    }
+
+    .admin-order-details td {
+        padding-top: 4px;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* Ordered items */
+
+    .admin-order-items {
+        border-collapse: separate;
+        background: none;
+    }
+
+    .admin-order-items thead {
+        display: none;
+    }
+
+    .admin-order-items tbody,
+    .admin-order-items tfoot {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-order-items tbody tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        border: 1px solid var(--color-border-decorative-1);
+        background-color: var(--color-bg-form);
+    }
+
+    .admin-order-items tbody td {
+        display: block;
+        width: 100%;
+        padding: 10px 12px;
+        border: none;
+        border-bottom: 1px solid var(--color-border-decorative-1);
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    .admin-order-items tbody td:last-child {
+        border-bottom: none;
+    }
+
+    .admin-order-items tbody td::before {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: bold;
+    }
+
+    .admin-order-items tbody td:nth-child(1)::before {
+        content: "Réf. produit";
+    }
+
+    .admin-order-items tbody td:nth-child(2)::before {
+        content: "Produit";
+    }
+
+    .admin-order-items tbody td:nth-child(3)::before {
+        content: "Prix unitaire";
+    }
+
+    .admin-order-items tbody td:nth-child(4)::before {
+        content: "Quantité";
+    }
+
+    .admin-order-items tbody td:nth-child(5)::before {
+        content: "Sous-total";
+    }
+
+
+    /* Total */
+
+    .admin-order-items tfoot tr {
+        display: block;
+        width: 100%;
+        border: 1px solid var(--color-border-decorative-1);
+        background-color: var(--color-bg-form);
+    }
+
+    .admin-order-items tfoot th {
+        display: block;
+        width: 100%;
+        padding: 10px 12px;
+        border: none;
+        text-align: center;
+    }
+
+    .admin-order-items tfoot th:first-child {
+        padding-bottom: 4px;
+        background-color: var(--color-bg-admin);
+    }
+
+    .admin-order-items tfoot th:last-child {
+        padding-top: 4px;
+    }
+}

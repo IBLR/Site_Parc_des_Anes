@@ -1,0 +1,220 @@
+/*** List of donations ***/
+
+.admin-donations-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-bg-form);
+}
+
+.admin-donations-list-table th,
+.admin-donations-list-table td {
+    padding: 8px 12px;
+    border: 1px solid var(--color-border-decorative-1);
+    vertical-align: middle;
+}
+
+.admin-donations-list-table th {
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--color-bg-admin);
+}
+
+.admin-donations-list-table td {
+    text-align: center;
+}
+
+.admin-donations-list-table td:nth-child(6) {
+    text-align: left;
+}
+
+.admin-donations-list-table .donation-status-form {
+    margin: 0;
+}
+
+.admin-donations-list-table .donation-status-select {
+    width: auto;
+}
+
+.admin-donations-list-table td:last-child a {
+    display: inline-block;
+    width: 100px;
+}
+
+.admin-donations-list-table td:last-child a:hover {
+    color: var(--color-hover-action);
+}
+
+
+/*** Responsive ***/
+
+@media (max-width: 1050px) {
+
+    .admin-donations-list-table {
+        border-collapse: separate;
+        background: none;
+    }
+
+    .admin-donations-list-table thead {
+        display: none;
+    }
+
+    .admin-donations-list-table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-donations-list-table tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid var(--color-border-decorative-1);
+        background-color: var(--color-bg-form);
+    }
+
+    .admin-donations-list-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 12px;
+        border: none;
+        border-bottom: 1px solid var(--color-border-decorative-1);
+        text-align: center;
+    }
+
+    .admin-donations-list-table td:last-child {
+        border-bottom: none;
+    }
+
+    .admin-donations-list-table td::before {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: bold;
+    }
+
+    .admin-donations-list-table td:nth-child(1)::before {
+        content: "Statut";
+    }
+
+    .admin-donations-list-table td:nth-child(2)::before {
+        content: "Date";
+    }
+
+    .admin-donations-list-table td:nth-child(3)::before {
+        content: "Donateur";
+    }
+
+    .admin-donations-list-table td:nth-child(4)::before {
+        content: "Email";
+    }
+
+    .admin-donations-list-table td:nth-child(5)::before {
+        content: "Montant";
+    }
+
+    .admin-donations-list-table td:nth-child(6)::before {
+        content: "Message";
+    }
+
+    .admin-donations-list-table td:nth-child(7)::before {
+        content: "Détail";
+    }
+
+    .admin-donations-list-table td:nth-child(6) {
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    .admin-donations-list-table .donation-status-form {
+        margin: 0;
+    }
+
+    .admin-donations-list-table .donation-status-select {
+        width: auto;
+    }
+
+    .admin-donations-list-table td:last-child a {
+        display: block;
+        width: 100px;
+        margin-inline: auto;
+    }
+}
+
+
+
+/*      ADMIN donations details page code      */
+
+/*** Details of a donation ***/
+
+.admin-donation-show {
+    width: 100%;
+}
+
+.admin-donation-details {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-bg-form);
+}
+
+.admin-donation-details th,
+.admin-donation-details td {
+    padding: 8px 12px;
+    border: 1px solid var(--color-border-decorative-1);
+    vertical-align: middle;
+}
+
+.admin-donation-details th {
+    width: 180px;
+    font-weight: bold;
+    text-align: left;
+    background-color: var(--color-bg-admin);
+}
+
+.admin-donation-message {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+
+/*** Responsive ***/
+
+@media (max-width: 740px) {
+
+    .admin-donation-details {
+        border-collapse: separate;
+        background: none;
+    }
+
+    .admin-donation-details tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-donation-details tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        border: 1px solid var(--color-border-decorative-1);
+        background-color: var(--color-bg-form);
+    }
+
+    .admin-donation-details td,
+    .admin-donation-details th {
+        display: block;
+        width: 100%;
+        border: none;
+        text-align: center;
+    }
+
+    .admin-donation-details th {
+        padding-bottom: 4px;
+        background-color: var(--color-bg-admin);
+    }
+
+    .admin-donation-details td {
+        padding-top: 4px;
+        overflow-wrap: anywhere;
+    }
+
+    .admin-donation-details .admin-donation-message {
+        text-align: left;
+    }
+}

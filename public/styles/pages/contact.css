@@ -1,0 +1,333 @@
+/*** "Access" section ***/
+#map {
+    position: relative;
+    z-index: var(--z-base);
+    max-width: 900px;
+    height: clamp(200px, 26vw, 300px);
+    margin-inline: auto;
+    border: 1px solid var(--color-border-decorative-2);
+}
+
+.skip-map {  /* Link out of view */
+    position: absolute;
+    left: -9999px;
+}
+
+.skip-map:focus {  /* On tab (keyboard), link viewable */
+    position: static;
+    left: auto;
+    margin-bottom: 1rem;
+    display: inline-block;
+    font-style: italic;
+}
+
+
+/*** "Schedule and Price" section ***/
+.schedule-price-cards-container {
+    display: flex;
+    flex-direction: row;
+    margin-inline: auto;
+    gap: 30px 80px;
+}
+
+.schedule-price-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    padding: 20px;
+    gap: 20px;
+    border: 1px solid var(--color-border);
+    background-color: var(--white);
+    box-shadow: var(--shadow-subtle);
+}
+
+.schedule-price-card:hover {
+    border: 1px solid var(--color-border-decorative-2);
+}
+
+.schedule-card {
+    justify-content: space-between;
+}
+
+.price-card {
+    gap: 20px;
+}
+
+.schedule-block-info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    padding-block: 20px;
+}
+
+.schedule-subblock-info,
+.price-block-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.schedule-subblock-info p.text-color,
+.price-block-info p.text-color {
+    color: var(--color-h2-content);
+}
+
+.schedule-warning-date {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+.schedule-warning-date img {
+    width: clamp(1.5rem, 8vw, 2rem);
+    height: clamp(1.5rem, 8vw, 2rem);
+    margin-inline: 0.5rem;
+}
+
+.price-subblock-info {
+    text-align: left;
+}
+
+.price-amount {
+    text-align: right;
+    width: 4.5rem;
+}
+
+@media (max-width: 57.5rem) {
+    .schedule-price-cards-container {
+        flex-direction: column;
+    }
+    .schedule-block-info {
+        gap: 20px;
+        padding-block: 0;
+    }
+}
+
+@media (max-width: 35rem) {
+    .schedule-price-cards-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .schedule-price-card {
+        max-width: 300px;
+    }
+    .schedule-subblock-info,
+    .price-block-info {
+        flex-direction: column;
+        justify-content: center;
+        text-wrap: balance;
+    }
+    .price-subblock-info {
+        text-align: center;
+    }
+    .price-amount {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+
+/*** "Contact" section ***/
+/* Cards */
+.contact-cards-container {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(20px, 5vw, 60px);
+    justify-content: center;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 250px;
+    padding-block: 20px 10px;
+    padding-inline: 10px 10px;
+    align-items: center;
+    border: 1px solid var(--color-border-decorative-2);
+    box-shadow: var(--shadow-subtle);
+}
+
+.contact-card:hover {
+    border: 1px solid var(--color-border-decorative-1);
+}
+
+.contact-card img {
+    width: 70px;
+    height: 70px;
+}
+
+.contact-card-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.contact-card-bottom-info {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    min-height: 3.5rem;
+
+}
+
+@media (max-width: 35rem) {
+    .contact-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-card {
+        flex-direction: row;
+        width: clamp(280px, 80vw, 350px);
+        padding-block: 10px;
+    }
+    .contact-card-bottom-info {
+        min-height: auto;
+    }
+}
+
+/* Form */
+.contact-form-container {
+    max-width: 1000px;
+    width: 100%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5px, 1.2vw, 15px);
+    padding: clamp(15px, 2.8vw, 25px) clamp(15px, 3.5vw, 40px);
+    border: 2px solid var(--color-border-decorative-2);
+    background-color: var(--color-bg-form);
+}
+
+.form-row-subcontainer {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(5px, 1.2vw, 15px) 70px;
+    justify-content: center;
+}
+
+.form-field-block {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form-field-block.input-style,
+.form-field-block.textarea-style {
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-form-container label {
+    min-width: 6.25rem;
+    min-height: 25px;
+    text-align: left;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+    background-color: var(--white);
+    border: 1px solid var(--light-black);
+    border-radius: var(--radius-xs);
+    padding: 5px 10px;
+}
+
+.contact-form-container input {
+    width: 100%;
+    max-width: 26rem;
+    min-height: 25px;
+}
+
+.contact-form-container textarea {
+    width: 100%;
+    height: auto;
+    resize: vertical;
+}
+
+.contact-form-container button[type="submit"] {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.contact-form-container .error-message {
+    text-align: left;
+    display: block;
+    min-height: 1rem;
+    line-height: 1rem;
+}
+
+.contact-success-message {
+    display: flex;
+    min-height: 5rem;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+@media (max-width: 57.5rem) {
+    .form-row-subcontainer {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 35rem) {
+    .contact-form-container label {
+        text-align: center;
+    }
+    .contact-form-container textarea {
+        max-width: 26rem;
+    }
+    .form-field-block {
+        align-items: center;
+    }
+}
+
+
+/*** "Social networks" section ***/
+.social-networks-container {
+  width: 100%;
+    max-width: 900px;
+    padding: clamp(10px, 2.3vw, 30px);
+    margin-inline: auto;
+    border: 1px solid var(--light-black);
+    border-radius: var(--radius-lg);
+    background-color: var(--white);
+}
+
+.social-networks-ul-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px 14px;  /* Specific size to don't have 3+1 on 2 lines */
+    width: 100%;
+
+}
+
+.social-networks-link {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.social-networks-link:hover {
+    opacity: 0.7;
+}
+
+.social-networks-link img {
+    width: 60px;
+    height: auto;
+    background-color: white;
+    border-radius: var(--radius-lg);
+}
+
+@media (max-width: 35rem) {
+    .social-networks-ul-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

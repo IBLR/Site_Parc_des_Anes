@@ -1,0 +1,203 @@
+.account-section {
+    align-items: center;
+    text-align: center;
+    margin-inline: clamp(20px, 20vw, 300px);
+}
+
+.layout-section.account-section {
+    gap: 15px;
+}
+
+.account-section h1,
+.account-section h2 {
+    text-align: center;
+    color: var(--color-text-header);
+    text-shadow: none;
+}
+
+
+/*     Account actions       */
+.account-admin-action {
+    display: flex;
+    justify-content: center;
+}
+
+.account-dashboard-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 28px;
+
+    border: 2px solid var(--color-text-header);
+    border-radius: 6px;
+
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.account-dashboard-link:hover {
+    background-color: var(--color-text-header);
+    color: white;
+}
+
+.account-logout-action {
+    display: flex;
+    justify-content: center;
+}
+
+.logout-icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-content);
+    text-decoration: none;
+}
+
+.logout-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    color: var(--color-text-content);
+}
+
+.logout-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+
+.logout-icon-link:hover {
+    color: var(--color-hover-action);
+}
+
+
+/*          Tables           */
+.account-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.account-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.account-table th,
+.account-table td {
+    padding: 8px 15px;
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+}
+
+.account-table th {
+    font-weight: 700;
+}
+
+.account-table th:last-child,
+.account-table td:last-child {
+    text-align: right;
+}
+
+.account-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/*    Order number column    */
+.account-orders th:nth-child(2),
+.account-orders td:nth-child(2) {
+    text-align: center;
+}
+
+/*      Password form        */
+.account-password-form {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(18px, 2vw, 25px);
+}
+
+.account-password-form .form-field-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.account-password-form button {
+    align-self: center;
+    margin-top: 5px;
+}
+
+/*   Responsive  */
+@media (max-width: 850px) {
+    .account-section {
+        margin-inline: 60px;
+    }
+    .account-table th,
+    .account-table td {
+        padding: 10px 8px;
+    }
+}
+
+@media (max-width: 550px) {
+    .account-section {
+        margin-inline: 0;
+    }
+    .account-table-wrapper {
+        width: 100%;
+        overflow-x: visible;
+    }
+    .account-table {
+        width: 100%;
+        border-collapse: separate;
+    }
+    .account-table thead {
+        display: none;
+    }
+    .account-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .account-table tbody tr {
+        display: block;
+        padding: 5px 15px;
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+    }
+    .account-table tbody td {
+        display: flex;
+        row-gap: 15px;
+        align-items: baseline;
+        justify-content: center;
+        width: 100%;
+        padding: 5px 0;
+        border-bottom: none;
+        text-align: right;
+    }
+    .account-table tbody td::before {
+        content: attr(data-label);
+        flex-shrink: 0;
+        margin-right: 20px;
+        font-weight: 700;
+        text-align: left;
+    }
+    /*       Order number        */
+    .account-orders tbody td:nth-child(2) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        text-align: center;
+    }
+    .account-orders tbody td:nth-child(2)::before {
+        margin-right: 0;
+        text-align: center;
+    }
+    .account-orders tbody td:nth-child(2) {
+        overflow-wrap: anywhere;
+    }
+
+}

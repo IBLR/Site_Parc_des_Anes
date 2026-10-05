@@ -1,0 +1,215 @@
+/*** List of messages ***/
+
+.admin-contacts-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-bg-form);
+}
+
+.admin-contacts-list-table th,
+.admin-contacts-list-table td {
+    padding: 8px 12px;
+    border: 1px solid var(--color-border-decorative-1);
+    vertical-align: middle;
+}
+
+.admin-contacts-list-table th {
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--color-bg-admin);
+}
+
+.admin-contacts-list-table td {
+    text-align: center;
+}
+
+.admin-contacts-list-table td:nth-child(5) {
+    text-align: left;
+}
+
+.admin-contacts-list-table .contact-status-form {
+    margin: 0;
+}
+
+.admin-contacts-list-table .contact-status-select {
+    width: auto;
+}
+
+.admin-contacts-list-table td:last-child a {
+    display: inline-block;
+    width: 100px;
+}
+
+.admin-contacts-list-table td:last-child a:hover {
+    color: var(--color-hover-action);
+}
+
+
+/*** Responsive ***/
+
+@media (max-width: 1050px) {
+
+    .admin-contacts-list-table {
+        border-collapse: separate;
+        background: none;
+    }
+
+    .admin-contacts-list-table thead {
+        display: none;
+    }
+
+    .admin-contacts-list-table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-contacts-list-table tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid var(--color-border-decorative-1);
+        background-color: var(--color-bg-form);
+    }
+
+    .admin-contacts-list-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 12px;
+        border: none;
+        border-bottom: 1px solid var(--color-border-decorative-1);
+        text-align: center;
+    }
+
+    .admin-contacts-list-table td:last-child {
+        border-bottom: none;
+    }
+
+    .admin-contacts-list-table td::before {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: bold;
+    }
+
+    .admin-contacts-list-table td:nth-child(1)::before {
+        content: "Statut";
+    }
+
+    .admin-contacts-list-table td:nth-child(2)::before {
+        content: "Date";
+    }
+
+    .admin-contacts-list-table td:nth-child(3)::before {
+        content: "Nom";
+    }
+
+    .admin-contacts-list-table td:nth-child(4)::before {
+        content: "Email";
+    }
+
+    .admin-contacts-list-table td:nth-child(5)::before {
+        content: "Message";
+    }
+
+    .admin-contacts-list-table td:nth-child(6)::before {
+        content: "Détail";
+    }
+
+    .admin-contacts-list-table td:nth-child(5) {
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    .admin-contacts-list-table .contact-status-form {
+        margin: 0;
+    }
+
+    .admin-contacts-list-table .contact-status-select {
+        width: auto;
+    }
+
+    .admin-contacts-list-table td:last-child a {
+        display: block;
+        width: 100px;
+        margin-inline: auto;
+    }
+}
+
+
+
+/*      ADMIN contacts details page code      */
+
+/*** Message details ***/
+.admin-contact-show {
+    width: 100%;
+}
+
+.admin-contact-details {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-bg-form);
+}
+
+.admin-contact-details th,
+.admin-contact-details td {
+    padding: 8px 12px;
+    border: 1px solid var(--color-border-decorative-1);
+    vertical-align: middle;
+}
+
+.admin-contact-details th {
+    width: 180px;
+    font-weight: bold;
+    text-align: left;
+    background-color: var(--color-bg-admin);
+}
+
+.admin-contact-message {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+
+/*** Responsive ***/
+
+@media (max-width: 740px) {
+
+    .admin-contact-details {
+        border-collapse: separate;
+        background: none;
+    }
+
+    .admin-contact-details tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-contact-details tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        border: 1px solid var(--color-border-decorative-1);
+        background-color: var(--color-bg-form);
+    }
+
+    .admin-contact-details td,
+    .admin-contact-details th {
+        display: block;
+        width: 100%;
+        border: none;
+        text-align: center;
+    }
+
+    .admin-contact-details th {
+        padding-bottom: 4px;
+        background-color: var(--color-bg-admin);
+    }
+
+    .admin-contact-details td {
+        padding-top: 4px;
+        overflow-wrap: anywhere;
+    }
+
+    .admin-contact-details .admin-contact-message {
+        text-align: left;
+    }
+}

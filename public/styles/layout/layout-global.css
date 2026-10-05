@@ -1,0 +1,17 @@
+/*** General containers ***/
+.layout-section {
+    max-width: 1440px;
+    margin-inline: auto;
+    padding: var(--space-container-y) var(--space-container-x);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 6.5vw, 30px);
+}
+
+.section-space {
+    max-width: 1440px;
+    margin-inline: auto;
+    height: 20px;
+    background-color: var(--color-background);
+}
+

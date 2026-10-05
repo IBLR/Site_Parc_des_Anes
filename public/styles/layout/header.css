@@ -1,0 +1,163 @@
+
+/*** Header ***/
+.header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: var(--z-header);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid var(--color-border-decorative-1);
+    background-color: var(--color-header-bg);
+
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    padding: 10px clamp(15px, 1.8vw, 30px);
+}
+
+/*** Navigation ***/
+.header-nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.header-nav ul {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: clamp(10px, 2.5vw, 60px);
+    align-items: center;
+    margin-inline: 10px 0px;
+}
+
+.header-nav li a {
+    white-space: nowrap;
+}
+
+.header-nav li a.btn {
+    display: inline-flex;
+}
+
+.header-nav a {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-high-text);
+    color: var(--color-text-header);
+}
+
+.header-nav a:not(.btn):not(.header-icon-link):hover,
+.header-nav a:not(.btn):not(.header-icon-link):focus-visible {
+    border-bottom: 4px solid var(--color-hover-action);
+}
+
+
+/*** Toggle button ***/
+.header-nav-toggle-btn {
+    display: none;
+    background: none;
+    border: none;
+}
+.header-nav-toggle-btn button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header-nav-toggle-btn img {
+    width: 50px;
+    height: auto;
+    min-height: 20px;
+}
+
+/*** Responsive ***/
+@media (max-width: 60rem) {
+    .header {
+        padding: 10px clamp(10px, 3vw, 30px);
+    }
+
+    .header-nav-toggle-btn {
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+    }
+
+    .header-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: clamp(300px, 50vw, 450px);
+        padding: 0.5rem clamp(1rem, 2.5vw, 1.6rem) 1.2rem;
+        background-color: var(--color-header-bg);
+        border-bottom: 2px solid var(--color-border-decorative-1);
+        border-inline: 2px solid var(--color-border-decorative-1);
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateX(-50%) translateY(-10px);
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .header-nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .header-nav.is-open {  /* Interactivity JS */
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+    }
+}
+
+
+
+/*** Icons ***/
+.header-icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-content);
+    text-decoration: none;
+}
+
+.header-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    color: var(--color-text-content);
+    transform: translateY(4px);
+}
+
+.header-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+
+.header-icon-link:hover {
+    color: var(--color-hover-action);
+}

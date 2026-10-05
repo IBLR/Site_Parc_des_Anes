@@ -1,0 +1,277 @@
+/*** Creating a category ***/
+
+.admin-category-create-section {
+    padding: 15px 25px;
+    border: 1px solid var(--color-border-decorative-1);
+    background-color: var(--color-bg-form);
+    margin-bottom: 10px;
+}
+
+.admin-category-create-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.admin-category-create-row-fields {
+    display: grid;
+    grid-template-columns: 400px 250px;
+    gap: 40px;
+}
+
+.admin-category-create-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-category-create-field label {
+    font-weight: bold;
+}
+
+.admin-category-create-field input,
+.admin-category-create-field textarea {
+    width: 100%;
+}
+
+.admin-category-create-field textarea {
+    min-height: 50px;
+    resize: vertical;
+}
+
+.admin-category-order-field input {
+    max-width: 150px;
+}
+
+.admin-category-create-row-actions {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+@media (max-width: 740px) {
+    .admin-category-create-section {
+        text-align: center;
+    }
+    .admin-category-create-field {
+        align-items: center;
+    }
+    .admin-category-create-row-actions {
+        justify-content: center;
+    }
+}
+
+
+/*** List of categories ***/
+
+.admin-category-h3-message-block {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.admin-categories-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-bg-form);
+}
+
+.admin-categories-list-table th,
+.admin-categories-list-table td {
+    padding: 8px 12px;
+    border: 1px solid var(--color-border-decorative-1);
+    vertical-align: middle;
+}
+
+.admin-categories-list-table th {
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--color-bg-admin);
+}
+
+.admin-categories-list-table td:nth-child(3) {
+    text-align: center;
+}
+
+.admin-categories-list-table-actions {
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.admin-categories-list-table-actions a,
+.admin-categories-list-table-actions button {
+    display: block;
+    margin: 0;
+}
+
+.admin-categories-list-table-actions a + form,
+.admin-categories-list-table-actions button + a {
+    margin-top: 10px;
+}
+
+.admin-categories-list-table-actions > .error-message {
+    margin-bottom: 10px;
+}
+
+.admin-categories-list-table-edit-row input,
+.admin-categories-list-table-edit-row textarea {
+    width: 100%;
+}
+
+.admin-categories-list-table-edit-row textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.admin-categories-list-table-actions .error-message {
+    margin-bottom: 8px;
+    width: 110px;
+    flex-wrap: wrap;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+
+/*** Responsive ***/
+
+@media (max-width: 740px) {
+    .admin-category-h3-message-block {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .admin-category-create-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-category-create,
+    .admin-category-list {
+        margin-top: 25px;
+    }
+
+    .admin-category-create {
+        padding: 20px;
+    }
+
+    .admin-category-create-row-fields {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .admin-category-order-field input {
+        max-width: 150px;
+    }
+
+    .admin-categories-list-table {
+        border-collapse: separate;
+        background: none;
+    }
+
+    .admin-categories-list-table thead {
+        display: none;
+    }
+
+    .admin-categories-list-table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-categories-list-table tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid var(--color-border-decorative-1);
+        background-color: var(--color-bg-form);
+    }
+
+    .admin-categories-list-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 12px;
+        border: none;
+        border-bottom: 1px solid var(--color-border-decorative-1);
+        text-align: center;
+    }
+
+    .admin-categories-list-table td:last-child {
+        border-bottom: none;
+    }
+
+    .admin-categories-list-table td:nth-child(1)
+    .admin-categories-list-table td:nth-child(2),
+    .admin-categories-list-table td:nth-child(3),
+    .admin-categories-list-table td:nth-child(4) {
+        width: 100%;
+        text-align: center;
+    }
+
+    .admin-categories-list-table td:nth-child(1)::before {
+        content: "Catégorie";
+    }
+
+    .admin-categories-list-table td:nth-child(2)::before {
+        content: "Description";
+    }
+
+    .admin-categories-list-table td:nth-child(3)::before {
+        content: "Ordre d'affichage";
+    }
+
+    .admin-categories-list-table td:nth-child(4)::before {
+        content: "Actions";
+    }
+
+    .admin-categories-list-table td::before {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: bold;
+    }
+
+    .admin-categories-list-table-actions {
+        text-align: center;
+    }
+
+    .admin-categories-list-table-actions a,
+    .admin-categories-list-table-actions button {
+        display: block;
+        width: 100px;
+        margin-inline: auto;
+    }
+
+    .admin-categories-list-table-actions form {
+        margin: 0;
+    }
+
+    .admin-categories-list-table-actions a + form,
+    .admin-categories-list-table-actions button + a {
+        margin-top: 10px;
+    }
+
+    .admin-categories-list-table-edit-row td {
+        padding: 10px 12px;
+    }
+
+    .admin-categories-list-table-edit-row td::before {
+        margin-bottom: 6px;
+    }
+
+    .admin-categories-list-table-edit-row td:nth-child(1)::before {
+        content: "Catégorie";
+    }
+
+    .admin-categories-list-table-edit-row td:nth-child(2)::before {
+        content: "Description";
+    }
+
+    .admin-categories-list-table-edit-row td:nth-child(3)::before {
+        content: "Ordre d'affichage";
+    }
+
+    .admin-categories-list-table-edit-row td:nth-child(4)::before {
+        content: "Actions";
+    }
+}

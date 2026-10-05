@@ -1,0 +1,56 @@
+/*** "Donkeys" sections ***/
+.donkey-sub-section p {
+    text-wrap: balance;
+}
+
+.donkey-sub-section article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-inline: auto;
+    border: 1px solid var(--color-border);
+}
+
+.donkey-description {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    padding-inline: 20px;
+    padding-block: 20px;
+}
+
+.donkey-one-card-container {
+    width: 480px;
+}
+
+.donkey-one-card-container img {
+    width: 100%;
+    height: clamp(300px, 65vw, 400px);
+    object-fit: cover;
+}
+
+.donkey-three-cards-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px 35px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.donkey-three-cards-container article {
+    width: 340px;
+}
+
+.donkey-three-cards-container img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+@media (max-width: 35rem) {
+    .donkey-one-card-container {
+        width: 100%;
+    }
+}

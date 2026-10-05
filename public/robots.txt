@@ -1,0 +1,17 @@
+User-agent: *
+
+# Private and non-indexable pages
+Disallow: /?url=connexion
+Disallow: /?url=inscription
+Disallow: /?url=compte
+Disallow: /?url=panier
+Disallow: /?url=don/checkout
+Disallow: /?url=admin
+Disallow: /?url=api
+
+# Form submission routes
+Disallow: /?url=contact/send
+Disallow: /?url=panier/send
+Disallow: /?url=don/send
+
+Sitemap: https://parc-des-anes.infinityfree.io/sitemap.xml

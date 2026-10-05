@@ -1,0 +1,224 @@
+/*** "Header" section ***/
+.donation-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-header);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid var(--color-border-decorative-1);
+    background-color: var(--color-background);
+}
+
+.donation-header-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    padding: 20px var(--space-container-x);
+}
+
+.donation-h1 {
+    font-size: var(--font-size-h2);
+    color: var(--light-black);
+}
+
+.donation-go-back-donations-page {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.donation-go-back-donations-page:hover {
+    color: var(--color-hover-action);
+}
+
+.donation-go-back-donations-page img {
+    display: inline-flex;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+
+
+/*** "Donation amount" section ***/
+.donation-amount-summary {
+    width: 100%;
+    max-width: 700px;
+    margin: 15px auto;
+    padding: 15px;
+    border: 1px solid var(--color-border-decorative-2);
+    background-color: var(--color-bg-form);
+}
+
+.donation-amount-summary p {
+    margin: 0;
+}
+
+.donation-amount-summary strong {
+    margin-left: 5px;
+}
+
+
+/*** "Change amount" section ***/
+.donation-change-amount {
+    margin-block: 15px 25px;
+}
+
+.donation-change-amount a:hover {
+    color: var(--color-hover-action);
+}
+
+
+/*** "Donation form" section ***/
+.donation-form-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0px auto;
+    padding: clamp(15px, 3vw, 30px) clamp(15px, 3.5vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid var(--color-border-decorative-2);
+    background-color: var(--color-bg-form);
+}
+
+.donation-form-container .form-row-subcontainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+}
+
+.donation-form-container .form-field-block {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.donation-form-container label {
+    min-height: 25px;
+    text-align: left;
+}
+
+.donation-form-container input,
+.donation-form-container textarea {
+    background-color: var(--white);
+    border: 1px solid var(--light-black);
+    border-radius: var(--radius-xs);
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.donation-form-container input {
+    min-height: 25px;
+}
+
+.donation-form-container textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.donation-form-container input[readonly] {
+    background-color: var(--color-bg-form);
+}
+
+.donation-form-container .error-message {
+    text-align: left;
+}
+
+
+/*** "Donation button" section ***/
+.donation-form-container .form-row-subcontainer:last-child {
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*** "Donation messages" section ***/
+.donation-message {
+    margin-block: 15px;
+}
+
+.donation-form-container .donation-message {
+    width: 100%;
+    text-align: center;
+}
+
+.donation-payment-processing {
+    margin: 0;
+}
+
+
+/*** "Secured contribution" section ***/
+.contribution-secured {
+    max-width: 700px;
+    margin: 0px auto 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.contribution-secured img {
+    width: 30px;
+    height: 30px;
+}
+
+.contribution-secured p {
+    margin: 0;
+}
+
+
+/*** "Success" state ***/
+section.layout-section > .donation-message[data-donation-success="true"] {
+    margin-bottom: 25px;
+}
+
+
+/*** Responsive ***/
+@media (max-width: 40rem) {
+    .donation-header-inner {
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+    }
+    .donation-form-container .form-row-subcontainer {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 35rem) {
+    .donation-form-container {
+        padding: 20px 15px;
+    }
+    .donation-form-container label {
+        text-align: center;
+    }
+    .donation-form-container .error-message {
+        text-align: center;
+    }
+    .contribution-secured {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 27.5rem) {
+    .donation-amount-summary {
+        padding: 10px;
+    }
+    .donation-form-container {
+        padding: 15px 10px;
+    }
+}

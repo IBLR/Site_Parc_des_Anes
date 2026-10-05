@@ -1,0 +1,93 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-high-text);
+    line-height: 1.2;
+    text-align: center;
+    text-wrap: balance;
+    padding: 0.25em 1em;
+    border: none;
+    box-shadow: var(--shadow-light);
+    transition: 
+        background-color 0.1s, 
+        color 0.1s, 
+        transform 0.1s, 
+        box-shadow 0.1s;
+}
+
+.btn--square-md {
+    border-radius: var(--radius-md);
+    width: 12.5rem;
+    height: 3.75rem;
+}
+
+.btn--square-sm {
+    border-radius: var(--radius-sm);
+    width: 7.5rem;
+    height: 2.5rem;
+}
+
+.btn--square-lg {
+    border-radius: var(--radius-md);
+    width: clamp(15.625rem, 30vw, 18.75rem);
+    height: 2.5rem;
+}
+
+.btn--circle-md {
+    border-radius: var(--radius-lg);
+    width: 9.375rem;
+    height: 2.1875rem;
+}
+
+.btn--primary {
+    background-color: var(--color-btn-primary-bg);
+    color: var(--color-btn-primary-text);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+    background-color: var(--color-btn-primary-bg-hover);
+    color: var(--color-btn-primary-text-hover);
+}
+
+.btn--secondary {
+    background-color: var(--color-btn-secondary-bg);
+    color: var(--color-btn-secondary-text);
+    border: 2px solid var(--color-btn-secondary-border);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+    background-color: var(--color-btn-secondary-bg-hover);
+    color: var(--color-btn-secondary-text-hover);
+    border: 2px solid var(--color-btn-secondary-border-hover);
+}
+
+.btn--primary:active,
+.btn--primary:focus-visible:active,
+.btn--secondary:active,
+.btn--secondary:focus-visible:active {
+    transform: translateY(2px) scale(0.98);
+}
+
+@media (max-width: 23rem) {
+    .btn {
+        padding: 0 0.25em;
+    }
+    .btn--square-md {
+        width: 11rem;
+        height: 3.4rem;
+    }
+}
+
+@media (max-width: 27.5rem) {
+    .btn {
+        padding: 0 0.25em;
+    }
+    .btn--square-lg {
+        width: clamp(12rem, 60vw, 15.625rem);
+        height: 2.5rem;
+    }
+}

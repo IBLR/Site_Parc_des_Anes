@@ -1,0 +1,75 @@
+/*     NORMALIZE     */
+
+/*** Universal box sizing ***/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/***** Basic reset *****/
+html {
+    font-size: 100%;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+
+/*** Media and graphic elements ***/
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+
+/*** Forms ***/
+button, input, select, textarea {
+    font: inherit;
+}
+
+
+/*** Lists ***/
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+
+/*** Remove arrows from number inputs ***/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+
+
+/*     ACCESSIBILITY     */
+
+/*** Visible focus for keyboard users ***/
+:focus-visible {
+    outline: 2px solid var(--color-focus-outline);
+    outline-offset: 2px;
+}
+
+
+/*** User motion preferences ***/
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

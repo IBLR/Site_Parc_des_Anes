@@ -1,0 +1,2 @@
+[2026-08-29 14:34:22] Message: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for sql303.infinityfree.com failed: Hôte inconnu.  | Code: 2002 | Fichier: C:\xampp\htdocs\tests\PARC_DES_ANES\src\Core\DatabaseConnect.php | Ligne: 41
+[2026-08-29 17:52:01] Message: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for sql303.infinityfree.com failed: Hôte inconnu.  | Code: 2002 | Fichier: C:\xampp\htdocs\tests\PARC_DES_ANES\src\Core\DatabaseConnect.php | Ligne: 41

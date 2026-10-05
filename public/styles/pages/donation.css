@@ -1,0 +1,180 @@
+/*** "Donation" section ***/
+.donation-description {
+    display: flex;
+    flex-direction: column;
+    max-width: 50rem;
+    margin-inline: auto;
+}
+
+.donation-cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: clamp(20px, 5vw, 50px);
+}
+
+.donation-card {
+    display: flex;
+    flex-direction: column;
+    width: clamp(140px, 25vw, 200px);
+    gap: 25px;
+    padding: 20px;
+    border: 1px solid var(--color-border-decorative-1);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.donation-card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.donation-card-top img {
+    width: clamp(80px, 10vw, 100px);
+    height: auto;
+}
+
+.donation-card-top h3 {
+    color: var(--color-text-content);
+}
+
+.donation-card-bottom {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-wrap: balance;
+}
+
+/*** "Contribution" section ***/
+.contribution-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-block: 30px;
+    padding-inline: clamp(10px, 2vw, 50px);
+    margin-inline: clamp(10px, 2vw, 100px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-bg-form);
+}
+
+.contribution-form-container fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: none;
+}
+
+.form-fixed-amounts-container,
+.form-other-amount-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.fixed-amount-btn-radio input[type="radio"],
+.other-amount-btn-radio input[type="radio"] {
+    opacity: 0;
+    position: absolute;  /* Hide the radio button */
+}
+
+.fixed-amount-card,
+.other-amount-card {
+    border: 2px solid var(--color-border-decorative-2);
+    background-color: var(--color-btn-secondary-bg);
+    padding: 15px 20px;
+}
+
+.fixed-amount-btn-radio:hover .fixed-amount-card,
+.other-amount-card:hover {
+    border: 2px solid var(--color-border-decorative-1);
+}
+
+.fixed-amount-card.selected,
+.other-amount-card.selected {   /* Activated by JS */
+    background-color: var(--color-btn-primary-bg);
+    border: 2px solid var(--color-border-decorative-2);
+}
+
+.form-fixed-amounts-container {
+    justify-content: center;
+    gap: 40px 60px;
+}
+
+.fixed-amount-card {
+    display: block;
+    width: 165px;
+    text-align: center;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.form-other-amount-container {
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.other-amount-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.other-amount-card input {
+    width: 100%;
+    max-width: 250px;
+    border: none;
+    padding: 0;
+    margin: 0 10px 0 0;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-high-text);
+    text-align: right;
+    background-color: transparent;
+}
+
+.other-amount-card input:focus {
+    outline: none;   /* Focus not on input but on card */
+}
+
+.other-amount-card:focus-within {  /* Focus on parent element */
+    outline: 2px solid var(--color-focus-outline);
+    outline-offset: 2px;
+}
+
+.contribution-form-container button[type="submit"] {
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.contribution-secured {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+.contribution-secured img {
+    width: clamp(1.5rem, 8vw, 2rem);
+    height: clamp(1.5rem, 8vw, 2rem);
+    margin-inline: 0.5rem;
+}
+
+.contribution-form-container .error-message {   /* Activated by JS */
+    margin-top: 1rem;
+}
+
+
+/*** "Thanks" section ***/
+.thanks {
+    display: flex;
+    flex-direction: column;
+    max-width: 56.25rem;
+    margin-inline: auto;
+}
