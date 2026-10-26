@@ -1,4 +1,3 @@
-<!-- Panier -->
 <section>
     <h2 class="cart-h2">Articles 
         <span class="cart-display">(0)</span>

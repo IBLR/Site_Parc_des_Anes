@@ -5,6 +5,9 @@ namespace App\Models;
 use App\Core\DatabaseConnect;
 use PDO;
 
+/**
+ * Handles database operations for donations.
+ */
 class DonationModel
 {
     private PDO $db;
@@ -18,10 +21,10 @@ class DonationModel
 
 
     /**
-     * Enregistre un don.
+     * Saves a donation.
      *
-     * Le numéro de don est généré à partir
-     * de l'ID technique après insertion.
+     * The donation number is generated from the
+     * internal ID after the donation has been inserted.
      */
     public function createDonation(
         int $userId,
@@ -33,23 +36,17 @@ class DonationModel
         string $comment
     ): int|false {
 
-        // -------------------------------------------------
-        // Début de la transaction
-        // -------------------------------------------------
 
+        // Start the transaction
         $this->db->beginTransaction();
 
-
-        // -------------------------------------------------
-        // Création du don
-        // -------------------------------------------------
-
+        // Create the donation
         /*
-         * donation_number doit recevoir une valeur dès
-         * l'insertion car la colonne est UNIQUE et NOT NULL.
+         * donation_number must have a value when the row is
+         * inserted because the column is UNIQUE and NOT NULL.
          *
-         * Cette valeur temporaire sera remplacée immédiatement
-         * après récupération de l'ID technique du don.
+         * This temporary value is immediately replaced after
+         * retrieving the donation's internal ID.
          */
         $stmt = $this->db->prepare(
             "INSERT INTO {$this->table}
@@ -95,32 +92,19 @@ class DonationModel
             return false;
         }
 
-
-        // -------------------------------------------------
-        // Récupération de l'ID technique du don
-        // -------------------------------------------------
-
+        // Retrieve the donation's internal ID
         $donationId = (int) $this->db->lastInsertId();
 
 
-        // -------------------------------------------------
-        // Génération du numéro de don affichable
-        // -------------------------------------------------
-
-        /*
-         * Exemple :
-         * DON-2026-000001
-         */
+        // Generate the displayable donation number
+        // Example : DON-2026-000001
         $donationNumber = 'DON-'
             . date('Y')
             . '-'
             . str_pad((string) $donationId, 6, '0', STR_PAD_LEFT);
 
 
-        // -------------------------------------------------
-        // Remplacement du numéro temporaire
-        // -------------------------------------------------
-
+        // Replace the temporary donation number
         $stmt = $this->db->prepare(
             "UPDATE {$this->table}
             SET donation_number = :donation_number
@@ -137,20 +121,15 @@ class DonationModel
             return false;
         }
 
-
-        // -------------------------------------------------
-        // Validation définitive de la transaction
-        // -------------------------------------------------
-
+        // Commit the transaction
         $this->db->commit();
-
 
         return $donationId;
     }
 
 
     /**
-     * Retourne l'historique des dons d'un utilisateur.
+     * Returns a user's donation history
      */
     public function findAllByUserId(int $userId): array
     {
@@ -177,7 +156,7 @@ class DonationModel
      */
 
     /**
-     * Retourne tous les dons pour l'administration.
+     * Returns all donations for the administration dashboard
      */
     public function findAllForAdmin(): array
     {
@@ -192,7 +171,7 @@ class DonationModel
 
 
     /**
-     * Retourne un don par ID.
+     * Returns a donation by its ID
      */
     public function findItemById(int $id): array|false
     {
@@ -211,7 +190,7 @@ class DonationModel
 
 
     /**
-     * Modifie le statut de traitement d'un don.
+     * Updates the processing status of a donation
      */
     public function updateStatus(int $id, string $status): bool
     {

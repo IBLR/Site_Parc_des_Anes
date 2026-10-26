@@ -5,6 +5,9 @@ namespace App\Models;
 use App\Core\DatabaseConnect;
 use PDO;
 
+/**
+ * Handles database operations for product categories.
+ */
 class ProductCategoryModel
 {
     private PDO $db;
@@ -18,7 +21,7 @@ class ProductCategoryModel
 
 
     /**
-     * Retourne toutes les catégories.
+     * Returns all categories
      */
     public function findAllItems(): array
     {
@@ -37,7 +40,7 @@ class ProductCategoryModel
 
 
     /**
-     * Retourne une catégorie par ID.
+     * Returns a category by its ID
      */
     public function findItemById(int $id): array|false
     {
@@ -60,7 +63,7 @@ class ProductCategoryModel
 
 
     /**
-     * Recherche d'une catégorie par label.
+     * Finds a category by its label
      */
     public function findItemByLabel(string $label): array|false
     {
@@ -83,7 +86,7 @@ class ProductCategoryModel
 
 
     /**
-     * Recherche d'une catégorie par ordre d'affichage.
+     * Finds a category by its display order
      */
     public function findItemByDisplayOrder(int $displayOrder): array|false
     {
@@ -106,7 +109,7 @@ class ProductCategoryModel
 
 
     /**
-     * Création d'une catégorie.
+     * Creates a category
      */
     public function createItem(array $data): bool
     {
@@ -134,7 +137,7 @@ class ProductCategoryModel
 
 
     /**
-     * Modification d'une catégorie.
+     * Updates a category by its ID
      */
     public function updateItemById(int $id, array $data): bool
     {
@@ -157,7 +160,7 @@ class ProductCategoryModel
 
 
     /**
-     * Suppression d'une catégorie.
+     * Deletes a category by its ID
      */
     public function deleteItemById(int $id): bool
     {
@@ -173,7 +176,7 @@ class ProductCategoryModel
 
 
     /**
-     * Dernier ID inséré.
+     * Returns the ID of the last inserted row
      */
     public function getLastInsertId(): string
     {

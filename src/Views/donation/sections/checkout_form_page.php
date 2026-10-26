@@ -61,7 +61,6 @@ $isAuthenticated = $isAuthenticated ?? false;
         >
 
 
-        <!-- Nom / Prénom -->
         <div class="form-row-subcontainer">
 
             <div class="form-field-block input-style">
@@ -142,7 +141,6 @@ $isAuthenticated = $isAuthenticated ?? false;
         </div>
 
 
-        <!-- Email / Téléphone -->
         <div class="form-row-subcontainer">
 
             <?php if (!empty($isAuthenticated)): ?>
@@ -213,7 +211,6 @@ $isAuthenticated = $isAuthenticated ?? false;
         </div>
 
 
-        <!-- Commentaire -->
         <div class="form-row-subcontainer">
 
             <div class="form-field-block textarea-style">
@@ -241,7 +238,6 @@ $isAuthenticated = $isAuthenticated ?? false;
         </div>
 
 
-        <!-- Erreur CSRF -->
         <div class="form-row-subcontainer">
 
             <?php if (!empty($errors['csrf'])): ?>
@@ -285,7 +281,6 @@ $isAuthenticated = $isAuthenticated ?? false;
         ></p>
 
 
-        <!-- Bouton -->
         <div class="form-row-subcontainer">
 
             <button

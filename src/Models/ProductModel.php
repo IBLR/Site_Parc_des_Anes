@@ -5,6 +5,9 @@ namespace App\Models;
 use App\Core\DatabaseConnect;
 use PDO;
 
+/**
+ * Handles database operations for products.
+ */
 class ProductModel
 {
     private PDO $db;
@@ -15,7 +18,9 @@ class ProductModel
         $this->db = DatabaseConnect::getInstance()->getConnection();
     }
 
-
+    /**
+     * Returns all available products.
+     */
     public function findAllActiveItems(): array
     {
         $stmt = $this->db->prepare("
@@ -32,7 +37,9 @@ class ProductModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
+    /**
+     * Returns a product by its ID.
+     */
     public function findItemById(int $id): array|false
     {
         $stmt = $this->db->prepare("
@@ -48,7 +55,9 @@ class ProductModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-
+    /**
+     * Returns all products, ordered from newest to oldest.
+     */
     public function findAllItems(): array
     {
         $stmt = $this->db->query("
@@ -60,7 +69,9 @@ class ProductModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
+    /**
+     * Creates a product.
+     */
     public function createItem(array $data, ?string $image = null): bool
     {
         $stmt = $this->db->prepare("
@@ -97,7 +108,9 @@ class ProductModel
         ]);
     }
 
-
+    /**
+     * Updates a product by its ID.
+     */
     public function updateItemById(int $id, array $data): bool
     {
         $stmt = $this->db->prepare("
@@ -127,7 +140,7 @@ class ProductModel
 
 
     /**
-     * Compte le nombre de produits associés à une catégorie.
+     * Counts the products associated with a category.
      */
     public function countItemsByCategoryId(int $categoryId): int
     {
@@ -144,7 +157,9 @@ class ProductModel
         return (int)$stmt->fetchColumn();
     }
 
-
+    /**
+     * Deletes a product by its ID.
+     */
     public function deleteItemById(int $id): bool
     {
         $stmt = $this->db->prepare("
@@ -157,13 +172,15 @@ class ProductModel
         ]);
     }
 
-
+    /**
+     * Returns the ID of the last inserted row.
+     */
     public function getLastInsertId(): string
     {
         return $this->db->lastInsertId();
     }
 
-    // Incrémentation réf produit
+    // Updates a product's reference (Incrementation)
     public function updateReference(int $id, string $reference): bool
     {
         $stmt = $this->db->prepare("

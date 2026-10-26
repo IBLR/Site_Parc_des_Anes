@@ -5,6 +5,9 @@ namespace App\Models;
 use App\Core\DatabaseConnect;
 use PDO;
 
+/**
+ * Handles database operations for orders and their items.
+ */
 class OrderModel
 {
     private PDO $db;
@@ -18,13 +21,11 @@ class OrderModel
 
 
     /**
-     * Enregistre une commande et toutes ses lignes, avec ses coordonnées de livraison.
-     * La commande et ses lignes sont enregistrées
-     * dans une seule transaction.
-     * Si une seule étape échoue, aucune donnée
-     * n'est conservée en base.
-     * Le numéro de commande est généré à partir de l'ID technique
-     * après insertion.
+     * Saves an order, all its items, and the customer's delivery details.
+     *
+     * The order and its items are saved within a single transaction.
+     * If any step fails, none of the data is retained in the database.
+     * The order number is generated from the internal ID after insertion.
      */
     public function createOrder(
         int $userId,
@@ -38,21 +39,17 @@ class OrderModel
         array $cart
     ): int|false {
 
-        // -------------------------------------------------
-        // Début de la transaction
-        // -------------------------------------------------
+        // Start the transaction
         $this->db->beginTransaction();
 
 
-        // -------------------------------------------------
-        // Création de la commande
-        // -------------------------------------------------
+        // Create the order
         /*
-         * order_number doit recevoir une valeur dès l'insertion
-         * car la colonne est unique.
+         * order_number must have a value when the row is inserted
+         * because the column has a UNIQUE constraint.
          *
-         * Cette valeur temporaire sera remplacée immédiatement
-         * après récupération de l'ID technique de la commande.
+         * This temporary value is replaced immediately after
+         * retrieving the order's internal ID.
          */
         $stmt = $this->db->prepare(
             "INSERT INTO {$this->table}
@@ -103,22 +100,18 @@ class OrderModel
         }
 
 
-        // Récupération de l'ID technique de la commande
+        // Retrieve the order's internal ID
         $orderId = (int) $this->db->lastInsertId();
 
-        /*
-         * Génération du numéro de commande affichable.
-         *
-         * Exemple :
-         * CMD-2026-000017
-         */
+        // Generate the customer-facing order number.
+        // Example: CMD-2026-000017
         $orderNumber = 'CMD-'
             . date('Y')
             . '-'
             . str_pad((string) $orderId, 6, '0', STR_PAD_LEFT);
 
 
-        // Remplacement du numéro temporaire
+        // Replace the temporary order number
         $stmt = $this->db->prepare(
             "UPDATE {$this->table}
             SET order_number = :order_number
@@ -136,10 +129,7 @@ class OrderModel
         }
 
 
-        // -------------------------------------------------
-        // Création des lignes de commande
-        // -------------------------------------------------
-
+        // Create the order items
         foreach ($cart as $item) {
 
             $success = $this->createOrderItem(
@@ -159,21 +149,17 @@ class OrderModel
         }
 
 
-        // -------------------------------------------------
-        // Validation définitive de la transaction
-        // -------------------------------------------------
-
+        // Commit the transaction
         $this->db->commit();
-
 
         return $orderId;
     }
 
 
     /**
-     * Enregistre une ligne de commande.
+     * Saves an order item.
      *
-     * product_id correspond à l'ID technique du produit.
+     * product_id is the product's internal ID.
      */
     public function createOrderItem(
         int $orderId,
@@ -227,7 +213,7 @@ class OrderModel
 
     
     /**
-     * Retrouve le numéro de commande client.
+     * Retrieves the customer-facing order number
      */
     public function findOrderNumberById(int $orderId): string|false
     {
@@ -252,7 +238,7 @@ class OrderModel
 
 
     /**
-     * Retourne l'historique des commandes d'un utilisateur.
+     * Returns a user's order history
      */
     public function findAllByUserId(int $userId): array
     {
@@ -282,7 +268,7 @@ class OrderModel
      */
 
     /**
-     * Retourne toutes les commandes pour l'administration.
+     * Returns all orders for the administration dashboard
      */
     public function findAllForAdmin(): array
     {
@@ -302,7 +288,7 @@ class OrderModel
 
 
     /**
-     * Retourne une commande par ID.
+     * Returns an order by its ID
      */
     public function findItemById(int $id): array|false
     {
@@ -321,7 +307,7 @@ class OrderModel
 
 
     /**
-     * Retourne toutes les lignes d'une commande.
+     * Returns all items for an order
      */
     public function findOrderItems(int $orderId): array
     {
@@ -341,7 +327,7 @@ class OrderModel
 
 
     /**
-     * Modifie le statut d'une commande.
+     * Updates the status of an order
      */
     public function updateStatus(int $id, string $status): bool
     {

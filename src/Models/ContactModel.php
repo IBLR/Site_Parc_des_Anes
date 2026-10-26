@@ -5,6 +5,9 @@ namespace App\Models;
 use App\Core\DatabaseConnect;
 use PDO;
 
+/**
+ * Handles database operations for contact messages.
+ */
 class ContactModel
 {
     private PDO $db;
@@ -15,7 +18,7 @@ class ContactModel
         $this->db = DatabaseConnect::getInstance()->getConnection();
     }
 
-    // 🔍 ANTI DOUBLON
+    // Check for duplicate messages
     public function exists(string $email, string $message): bool
     {
         $stmt = $this->db->prepare(
@@ -34,7 +37,7 @@ class ContactModel
         return $stmt->fetch(PDO::FETCH_ASSOC) !== false;
     }
 
-    // Enregistrement
+    // Save a contact form submission
     public function saveContactForm(
         string $lastName,
         string $firstName,
@@ -79,7 +82,7 @@ class ContactModel
      */
 
     /**
-     * Retourne tous les messages de contact pour l'administration.
+     * Returns all contact messages for the administration dashboard.
      */
     public function findAllForAdmin(): array
     {
@@ -94,7 +97,7 @@ class ContactModel
 
 
     /**
-     * Retourne un message de contact par ID.
+     * Returns a contact message by its ID.
      */
     public function findItemById(int $id): array|false
     {
@@ -113,7 +116,7 @@ class ContactModel
 
 
     /**
-     * Modifie le statut de traitement d'un message.
+     * Updates the processing status of a contact message.
      */
     public function updateStatus(int $id, string $status): bool
     {

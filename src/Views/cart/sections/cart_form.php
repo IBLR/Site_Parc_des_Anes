@@ -1,4 +1,3 @@
-<!-- Formulaire de commande -->
 <section>
     <h2 class="cart-h2">Informations de livraison</h2>
 

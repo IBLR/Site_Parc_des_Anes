@@ -41,14 +41,13 @@
         </div>
 
         <div class="form-other-amount-container">
-            <!-- Option don libre -->
+
             <label class="other-amount-btn-radio">
             <input type="radio" name="donation_choice" value="other" tabindex="-1">
             <span>Montant libre :</span>
             <span class="visually-hidden">en euros</span>
             </label>
 
-            <!-- Champ montant libre -->
             <div class="other-amount-card">
             <input
                 type="number"
@@ -62,7 +61,6 @@
             </div>
         </div>
 
-        <!-- Montant final transmis au backend -->
         <input
             type="hidden"
             id="donation-amount-final"
