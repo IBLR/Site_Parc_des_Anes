@@ -173,9 +173,9 @@ PARC_DES_ANES/
 ├── public/
 │   ├── .htaccess
 │   ├── index.php
+│   ├── robots.txt
+│   ├── sitemap.xml
 │   ├── assets/
-│   ├── icons/
-│   ├── images/
 │   ├── scripts/
 │   ├── styles/
 │   └── uploads/
